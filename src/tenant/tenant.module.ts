@@ -15,7 +15,7 @@ import { TenantConnectionProvider } from 'src/providers/tenant-connection.provid
       },
     ]),
   ],
-  controllers: [],
+  controllers: [TenantController],
   providers: [TenantService, TenantConnectionProvider],
   exports: [TenantService, TenantConnectionProvider],
 })

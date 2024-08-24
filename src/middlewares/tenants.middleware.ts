@@ -1,10 +1,15 @@
-import { BadRequestException, Injectable, NestMiddleware, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NestMiddleware,
+  NotFoundException,
+} from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 import { TenantService } from 'src/tenant/tenant.service';
 
 @Injectable()
 export class TenantsMiddleware implements NestMiddleware {
-
+  constructor(private tenantService: TenantService) {}
 
   async use(req: Request, res: Response, next: NextFunction) {
     const tenant_id = req.headers['x-tenant-id']?.toString();
